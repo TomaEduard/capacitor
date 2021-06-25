@@ -1,0 +1,47 @@
+<!-- <div (mouseenter)="suntInSnackbar = true" (mouseleave)="suntInSnackbar= false" [ngClass]="{'dark': esteDarkTheme}"> -->
+    <!-- TODO -->
+<div (mouseenter)="suntInSnackbar = true" (mouseleave)="suntInSnackbar= false">
+    <div @items *ngFor="let mesaj of mesaje; let i = index" class="suportMesaj">
+        <p *ngIf="mesaj.felMesaj==='eroare'" class="red-snackbar-multiplu" fxLayout="row">
+            <span fxLayoutAlign="center center">
+                <span class="litera-tip-mesaj">
+                    <mat-icon>Eroare</mat-icon>
+                    <button mat-icon-button class="close-icon" (click)="StergeMesaj(i)" onclick="this.blur();">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </span>
+                {{mesaj.mesaj}}
+            </span>
+        </p>
+        <p *ngIf="mesaj.felMesaj==='atentionare'" class="yellow-snackbar-multiplu" fxLayout="row">
+            <span fxLayoutAlign="center center">
+                <span class="litera-tip-mesaj">
+                    <mat-icon>Atentionare</mat-icon>
+                    <button mat-icon-button class="close-icon" (click)="StergeMesaj(i)" onclick="this.blur();">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </span>
+                {{mesaj.mesaj}}
+            </span>
+        </p>
+        <p *ngIf="mesaj.felMesaj==='succes'" class="green-snackbar-multiplu" fxLayout="row">
+            <span fxLayoutAlign="center center">
+                <span class="litera-tip-mesaj">
+                    <mat-icon>Succes</mat-icon>
+                    <button mat-icon-button class="close-icon" (click)="StergeMesaj(i)" onclick="this.blur();">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </span>
+                {{mesaj.mesaj}}
+            </span>
+        </p>
+        <p *ngIf="mesaj.felMesaj==='eroareDrepturiDeAcces'" class="red-snackbar-multiplu" fxLayout="row">
+            <span fxLayoutAlign="center center">
+                <mat-icon class="litera-tip-mesaj">Restrictionat</mat-icon>{{mesaj.mesaj}}
+            </span>
+            <button mat-icon-button (click)="StergeMesaj(i)" onclick="this.blur();">
+                <mat-icon>close</mat-icon>
+            </button>
+        </p>
+    </div>
+</div>

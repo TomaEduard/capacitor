@@ -1,0 +1,37 @@
+<app-header>
+
+  <div class="container">
+  
+    <br>
+    <br>
+
+    <a>
+      https://capacitorjs.com/docs/apis/filesystem
+    </a>
+
+    <br>
+    <br>
+  
+    <pre class="code">npm install @capacitor/filesystem</pre>  
+    <br>
+    <br>
+    <pre class="code">npx cap sync</pre>  
+
+    <br>
+    <br>
+
+    <div fxLayout="row" fxLayoutGap="10px">
+      <button mat-stroked-button (click)="readSecretFile()">readSecretFile</button>
+      <button mat-stroked-button (click)="download(pdfUrl)">download</button>
+    </div>
+
+
+    <!-- <mat-progress-bar 
+      *ngIf="download$ | async as download"
+      [mode]="download.state == 'PENDING' ? 'buffer' : 'determinate'" 
+      [value]="download.progress">
+    </mat-progress-bar> -->
+
+  </div>
+
+</app-header>

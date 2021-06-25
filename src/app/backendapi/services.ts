@@ -1,0 +1,15 @@
+export { AdministratoriService } from './services/administratori.service';
+export { AniService } from './services/ani.service';
+export { AuthService } from './services/auth.service';
+export { ClientService } from './services/client.service';
+export { ContService } from './services/cont.service';
+export { CopiiService } from './services/copii.service';
+export { EducatoriService } from './services/educatori.service';
+export { GrupaService } from './services/grupa.service';
+export { PanouDeInformatiiService } from './services/panou-de-informatii.service';
+export { ParintiService } from './services/parinti.service';
+export { PlatiService } from './services/plati.service';
+export { PrezentaCopiiService } from './services/prezenta-copii.service';
+export { SuportDeployService } from './services/suport-deploy.service';
+export { TaxeService } from './services/taxe.service';
+export { UtilitareService } from './services/utilitare.service';

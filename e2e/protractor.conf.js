@@ -17,7 +17,7 @@ exports.config = {
   },
   directConnect: true,
   SELENIUM_PROMISE_MANAGER: false,
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: 'testlive1.e-taxe.ro',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,

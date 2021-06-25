@@ -1,0 +1,43 @@
+<div class="container_dialog">
+  <h1 mat-dialog-title>
+    <div fxLayout="column">
+      <div 
+        fxLayout="row" 
+        fxLayoutAlign="space-between center" 
+        class="text-header-dialog"
+      >
+        {{titlu}}
+        <div fxLayout="row" fxLayoutAlign="center center" class="close-button">
+          <button mat-icon-button [mat-dialog-close]="false">
+            <mat-icon class="close-icon">close</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- <mat-divider class="divider"></mat-divider> -->
+  </h1>
+  
+  <br>
+  <mat-dialog-content class="mat-typography">
+    <mat-list>
+      <mat-list-item>{{message}}</mat-list-item>
+    </mat-list>
+  </mat-dialog-content>
+  
+  <br>
+  
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="buton-renunt">Renunţă</button>
+    <!-- cdkFocusInitial -->
+    <button
+      mat-stroked-button 
+      [mat-dialog-close]="true" 
+      (click)="Continua()" 
+      class="buton-galben"
+    >
+      Continuă
+    </button>
+  </mat-dialog-actions>
+
+  <br>
+</div>

@@ -1,0 +1,43 @@
+.mat-dialog-title {
+    margin: 0 0 0px;
+    display: block;
+}
+
+.close-button {
+    padding-left: 40px;
+}
+
+.close-button{
+    float: right;
+    top:-24px;
+    right:-24px;
+}
+
+@import '../../../../styles.scss';
+
+.mat-divider {
+    width: 92%;
+}
+
+// ***Continut
+.mat-typography {
+    display: contents;
+}
+
+// ***Butoane
+.renunta-button {
+    font-family: 'Work Sans', sans-serif;
+    margin-right: 10px;
+    color: rgb(43, 43, 43);
+}
+
+.sterge-button {
+    font-family: 'Work Sans', sans-serif;
+    color: rgb(43, 43, 43);
+    border: 1px solid $rosu;
+    transition: 0.3s;
+}
+.sterge-button:hover {
+    background-color: $rosu-deschis;
+    // color: white;
+}

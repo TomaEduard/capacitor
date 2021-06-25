@@ -1,0 +1,65 @@
+<mat-toolbar class="mat-elevation-z1">
+
+  <div class="container">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+
+      <div>
+        <img [routerLink]="['/home']" style="width: 170px; margin-top: 11px; cursor: pointer;" src="../../../assets/83809024-9da80580-a66a-11ea-8a1d-090fe6f8b01e.png" alt="">
+      </div>
+
+      <button mat-icon-button [matMenuTriggerFor]="menuRef">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <mat-menu #menuRef="matMenu">
+        
+        <button mat-menu-item [routerLink]="['/documentation']" fxLayout="row" fxLayoutAlign="start center">
+          <span>Documentation</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-menu-item [routerLink]="['/features', 'qr-code']" fxLayout="row" fxLayoutAlign="start center">
+          <img width="25px;" style="margin-right: 12px" src="../../../assets/feature/qr_code.png" alt="">
+          <span>QR Code</span>
+        </button>
+
+        <button mat-menu-item [routerLink]="['/features', 'camera']" fxLayout="row" fxLayoutAlign="start center">
+          <img width="25px;" style="margin-right: 12px" src="../../../assets/feature/Camera.webp" alt="">
+          <span>Camera</span>
+        </button>
+
+        <button mat-menu-item [routerLink]="['/features', 'accelerometer']" fxLayout="row" fxLayoutAlign="start center">
+          <img width="25px;" style="margin-right: 12px" src="../../../assets/feature/Accelerometer.webp" alt="">
+          <span>Accelerometer</span>
+        </button>
+        
+        <button mat-menu-item [routerLink]="['/features', 'file-system']" fxLayout="row" fxLayoutAlign="start center">
+          <img width="25px;" style="margin-right: 12px" src="../../../assets/feature/FileSystem.webp" alt="">
+          <span>FileSystem</span>
+        </button>
+
+        <button mat-menu-item [routerLink]="['/features', 'geolocation']" fxLayout="row" fxLayoutAlign="start center">
+          <img width="25px;" style="margin-right: 12px" src="../../../assets/feature/Geolocation.webp" alt="">
+          <span>Geolocation</span>
+        </button>
+
+        <button mat-menu-item [routerLink]="['/features', 'network']" fxLayout="row" fxLayoutAlign="start center">
+          <img width="25px;" style="margin-right: 12px" src="../../../assets/feature/Network.webp" alt="">
+          <span>Network</span>
+        </button>
+
+        <button mat-menu-item [routerLink]="['/features', 'notifications']" fxLayout="row" fxLayoutAlign="start center">
+          <img width="25px;" style="margin-right: 12px" src="../../../assets/feature/Notifications.webp" alt="">
+          <span>Notifications</span>
+        </button>
+
+      </mat-menu>
+      
+    </div>
+  </div>
+
+
+</mat-toolbar>
+
+<ng-content></ng-content>
