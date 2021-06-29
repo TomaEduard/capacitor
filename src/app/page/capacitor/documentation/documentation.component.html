@@ -1,0 +1,88 @@
+<app-header>
+
+  <div class="container" >
+  
+    <br>
+    <br>
+    <h3>
+      Install Capacitor on project: 
+      <a class="a" href="['https://capacitorjs.com/solution/angular']">
+        https://capacitorjs.com/solution/angular
+      </a>
+    </h3>
+
+    <br>
+    <br>
+  
+    <pre class="code">ng add @capacitor/angular</pre>
+    <br>
+    <pre class="code">npm install @capacitor/cli@latest @capacitor/core@latest</pre>
+    <br>
+    <pre class="code">npx cap init</pre>
+
+    <ul>
+      <li>What is the name of your app?</li>
+      <li>What should be the Package ID for your app?(com.company.example)</li>
+    </ul>
+
+    <br>
+    <pre class="code">ng build --prod</pre> 
+    <br>
+
+    <ul>
+      <li>In root/capacitor.config.ts</li>
+      <li>config.webDir: 'dist/[name of folder]'</li>
+    </ul>
+
+    <br>
+    <br>
+
+    <mat-divider></mat-divider>
+    <br>
+    <h3>Install Capacitor for android & mac</h3>
+
+    <pre class="code">npm i @capacitor/ios @capacitor/android @capacitor/electron</pre> 
+    <br>
+    <pre class="code">npx cap add android</pre>  
+    <br>
+    <pre class="code">npx cap add ios</pre>  
+    <br>
+    <pre class="code">npx cap add electron</pre>  
+
+    <br>
+    <br>
+    <br>
+
+    <mat-divider></mat-divider>
+    <br>
+    <h3>sync dist/[project name] -> android/ios app</h3>
+
+    <pre class="code">npm cap sync</pre> 
+
+    <br>
+    <br>
+    <br>
+
+    <mat-divider></mat-divider>
+    <br>
+    <h3>package.json -> scripts</h3>
+
+    <pre class="code">"run-android": "ng b --prod && npx cap copy && npx cap open android",</pre><br>
+    <pre class="code">"run-ios": "ng b --prod && npx cap copy && npx cap open ios",</pre><br>
+    <pre class="code">"build-ios": "ng b --prod && npx cap copy",</pre> 
+
+    <br>
+    <br>
+    <pre class="code">"start:electron": "ng build --base-href ./ --prod && npx cap copy && npx cap open electron",</pre>
+    <pre class="code">"setup-win": "electron-packager . [name of project(folder name in dist/[example])] 
+      --overwrite --asar --platform=win32 --arch=ia32 --prune=true --electron-version=13.1.3 --out=release-builds 
+      --version-string.CompanyName=MyCompany --version-string.FileDescription=Test --version-string.ProductName=\"[name of project(folder name in dist/[example])]\",</pre>
+    <pre class="code">"run-electron": "ng b --base-href ./ --prod && npx cap copy && npx cap open electron"</pre>
+    
+
+    <br>
+    <br>
+  
+  </div>
+
+</app-header>

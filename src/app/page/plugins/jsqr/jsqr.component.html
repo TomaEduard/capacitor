@@ -1,0 +1,48 @@
+<app-header>
+
+  <div class="container">
+
+    <br>
+    <h3>
+      <a class="a" href="https://www.npmjs.com/package/jsqr">
+        https://www.npmjs.com/package/jsqr
+      </a>
+    </h3>
+    <br>
+
+    <div fxLayout="row" fxLayoutGap="15px">
+      <button mat-button (click)="startScan()">Start Scan</button>
+      <button *ngIf="scanActive" mat-button (click)="reset()">Reset</button>
+    </div>
+
+    <video #video [hidden]="!scanActive" width="100%"></video>
+
+    <button *ngIf="scanActive" mat-button (click)="stopScan()">Stop scan</button>
+
+    <ng-container *ngIf="scanResult">
+      <mat-card>
+          <mat-card-header>
+              <mat-card-title>Qr Code</mat-card-title>
+              <mat-card-subtitle>Subtitle</mat-card-subtitle>
+          </mat-card-header>
+          
+          <!-- <img matCardImage src="Card wide image source"> -->
+
+          <mat-card-content>
+            {{ scanResult }}
+          </mat-card-content>
+
+          <!-- <mat-card-actions align="start">
+            <button mat-button (click)="onAction1">Action1</button>
+          </mat-card-actions>
+
+          <mat-card-footer>
+            Footer
+          </mat-card-footer> -->
+
+      </mat-card>
+    </ng-container>
+    
+  </div>
+
+</app-header>

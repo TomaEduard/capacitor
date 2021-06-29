@@ -7,11 +7,27 @@
         <img [routerLink]="['/home']" style="width: 170px; margin-top: 11px; cursor: pointer;" src="../../../assets/83809024-9da80580-a66a-11ea-8a1d-090fe6f8b01e.png" alt="">
       </div>
 
-      <button mat-icon-button [matMenuTriggerFor]="menuRef">
-        <mat-icon>menu</mat-icon>
-      </button>
+      
+      <div fxLayout="row" fxLayoutGap="10px">
+        <button mat-button [matMenuTriggerFor]="puginsMenu">
+          Plugins
+        </button>
+  
+        <button mat-button [matMenuTriggerFor]="capacitorMenu">
+          Capacitor
+        </button>
+      </div>
 
-      <mat-menu #menuRef="matMenu">
+      <mat-menu #puginsMenu="matMenu">
+        <button mat-menu-item [routerLink]="['/ZXing']" fxLayout="row" fxLayoutAlign="start center">
+          <span>ZXing</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/jsQR']" fxLayout="row" fxLayoutAlign="start center">
+          <span>jsQR</span>
+        </button>
+      </mat-menu>
+
+      <mat-menu #capacitorMenu="matMenu">
         
         <button mat-menu-item [routerLink]="['/documentation']" fxLayout="row" fxLayoutAlign="start center">
           <span>Documentation</span>

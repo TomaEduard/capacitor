@@ -1,27 +1,29 @@
-import { FeatureFileSystemComponent } from './page/feature-file-system/feature-file-system.component';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AppRoutingModule } from "src/app-routing.module";
+import { MaterialModule } from "src/shared/material-module";
+import { AppComponent } from "./app.component";
+import { HeaderComponent } from "./components/header/header.component";
+import { DocumentationComponent } from "./page/capacitor/documentation/documentation.component";
+import { FeatureAccelerometerComponent } from "./page/capacitor/feature-accelerometer/feature-accelerometer.component";
+import { FeatureCameraComponent } from "./page/capacitor/feature-camera/feature-camera.component";
+import { FeatureFileSystemComponent } from "./page/capacitor/feature-file-system/feature-file-system.component";
+import { FeatureGeolocationComponent } from "./page/capacitor/feature-geolocation/feature-geolocation.component";
+import { FeatureNetworkComponent } from "./page/capacitor/feature-network/feature-network.component";
+import { FeatureNotificationsComponent } from "./page/capacitor/feature-notifications/feature-notifications.component";
+import { FeaturesComponent } from "./page/capacitor/features/features.component";
+import { QrCodeComponent } from "./page/capacitor/qr-code/qr-code.component";
+import { HomeComponent } from "./page/home/home.component";
+import { JsqrComponent } from "./page/plugins/jsqr/jsqr.component";
+import { AppInfoDialogComponent } from "./page/plugins/zxing/app-info-dialog/app-info-dialog.component";
+import { AppInfoComponent } from "./page/plugins/zxing/app-info/app-info.component";
+import { FormatsDialogComponent } from "./page/plugins/zxing/formats-dialog/formats-dialog.component";
+import { ZxingComponent } from "./page/plugins/zxing/zxing.component";
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { MaterialModule } from 'src/shared/material-module';
-import { AppRoutingModule } from 'src/app-routing.module';
-import { HeaderComponent } from './components/header/header.component';
-import { FeatureCameraComponent } from './page/feature-camera/feature-camera.component';
-import { FeaturesComponent } from './page/features/features.component';
-import { HomeComponent } from './page/home/home.component';
-import { FeatureNetworkComponent } from './page/feature-network/feature-network.component';
-import { FeatureGeolocationComponent } from './page/feature-geolocation/feature-geolocation.component';
-import { FeatureNotificationsComponent } from './page/feature-notifications/feature-notifications.component';
-import { FeatureAccelerometerComponent } from './page/feature-accelerometer/feature-accelerometer.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FereastraSnackbarMultipluComponent } from './dialogs/fereastra-snackbar-multiplu/fereastra-snackbar-multiplu.component';
-import { AtentionareAcsService } from './servicii/atentionare-acs.service';
-import { UtilsService } from './services/utils.service';
-import { DocumentationComponent } from './page/documentation/documentation.component';
-import { QrCodeComponent } from './page/qr-code/qr-code.component';
 
 @NgModule({
   declarations: [
@@ -35,9 +37,13 @@ import { QrCodeComponent } from './page/qr-code/qr-code.component';
     FeatureGeolocationComponent,
     FeatureNotificationsComponent,
     FeatureAccelerometerComponent,
-    FereastraSnackbarMultipluComponent,
     DocumentationComponent,
-    QrCodeComponent
+    QrCodeComponent,
+    AppInfoDialogComponent,
+    FormatsDialogComponent,
+    ZxingComponent,
+    AppInfoComponent,
+    JsqrComponent
   ],
   imports: [
     CommonModule,
@@ -47,10 +53,6 @@ import { QrCodeComponent } from './page/qr-code/qr-code.component';
     MaterialModule,
     FormsModule,
     BrowserAnimationsModule,
-  ],
-  providers: [
-    AtentionareAcsService,
-    UtilsService
   ],
   bootstrap: [AppComponent],
   schemas: [

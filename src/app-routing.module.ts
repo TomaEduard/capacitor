@@ -1,29 +1,39 @@
-import { QrCodeComponent } from './app/page/qr-code/qr-code.component';
-import { DocumentationComponent } from './app/page/documentation/documentation.component';
-import { FeatureGeolocationComponent } from './app/page/feature-geolocation/feature-geolocation.component';
-import { FeatureNotificationsComponent } from './app/page/feature-notifications/feature-notifications.component';
-import { FeatureNetworkComponent } from './app/page/feature-network/feature-network.component';
-import { FeatureFileSystemComponent } from './app/page/feature-file-system/feature-file-system.component';
-import { FeaturesComponent } from './app/page/features/features.component';
-import { FeatureCameraComponent } from './app/page/feature-camera/feature-camera.component';
+import { JsqrComponent } from './app/page/plugins/jsqr/jsqr.component';
+import { ZxingComponent } from './app/page/plugins/zxing/zxing.component';
 import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { Routes, RouterModule } from "@angular/router";
+import { DocumentationComponent } from "./app/page/capacitor/documentation/documentation.component";
+import { FeatureCameraComponent } from "./app/page/capacitor/feature-camera/feature-camera.component";
+import { FeatureFileSystemComponent } from "./app/page/capacitor/feature-file-system/feature-file-system.component";
+import { FeatureGeolocationComponent } from "./app/page/capacitor/feature-geolocation/feature-geolocation.component";
+import { FeatureNetworkComponent } from "./app/page/capacitor/feature-network/feature-network.component";
+import { FeatureNotificationsComponent } from "./app/page/capacitor/feature-notifications/feature-notifications.component";
+import { FeaturesComponent } from "./app/page/capacitor/features/features.component";
+import { QrCodeComponent } from "./app/page/capacitor/qr-code/qr-code.component";
+
 
 const routes: Routes = [
 
-  //  Documentation
+  // Plugins
+  {
+    path: 'ZXing',
+    component: ZxingComponent,
+  },
+  {
+    path: 'jsQR',
+    component: JsqrComponent,
+  },
+
+  // Capacitor
   {
     path: 'documentation',
     component: DocumentationComponent,
   },
-
-  // Features
   {
     path: 'features',
     component: FeaturesComponent,
   },
 
-  // 
   {
     path: 'features/qr-code',
     component: QrCodeComponent,
@@ -52,24 +62,6 @@ const routes: Routes = [
     path: 'features/accelerometer',
     component: FeatureNotificationsComponent,
   },
-
-  // {
-  //   path: 'features/camera',
-  //   component: FeaturesComponent,
-  //   children: [
-  //     {
-  //       path: 'camera',
-  //       pathMatch: 'full',
-  //       component: FeatureCameraComponent,
-  //     },
-  //     {
-  //       path: 'file-system',
-  //       pathMatch: 'full',
-  //       component: FeatureFileSystemComponent,
-  //     },
-
-  //   ],
-  // },
 
   {
     path: '**',
