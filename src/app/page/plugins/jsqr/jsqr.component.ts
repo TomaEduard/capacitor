@@ -44,7 +44,7 @@ export class JsqrComponent implements OnInit {
   constructor(private _snackBar: MatSnackBar,
     private deviceService: DeviceDetectorService,
     public dialog: MatDialog,
-    private plt: Platform,
+    public plt: Platform,
     private renderer: Renderer2,
   ) { 
     const isInStandaloneMode = () => 
@@ -85,7 +85,6 @@ export class JsqrComponent implements OnInit {
   }
 
   openVideo() {
-    
     if (this.videoElement.readyState === this.videoElement.HAVE_ENOUGH_DATA) {
       if (this.loadingCtrl) {
         this.loadingCtrl = false;
@@ -298,10 +297,6 @@ export class JsqrComponent implements OnInit {
     });
   }
 
-  // openSnackBar(message: string, action: string) {
-  //   this._snackBar.open(message, action);
-  // }
-
   openSnackBar() {
     this.snackBarShown = true;
     const duration = 0;
@@ -324,6 +319,7 @@ export class JsqrComponent implements OnInit {
   }
 
 
+  // dialog full screen
   dialogAddImage() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.hasBackdrop = true;
@@ -404,4 +400,5 @@ export class JsqrComponent implements OnInit {
   captureImage() {
     this.fileinput.nativeElement.click();
   }
+
 }
