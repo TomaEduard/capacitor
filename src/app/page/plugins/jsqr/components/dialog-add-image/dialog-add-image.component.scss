@@ -1,0 +1,40 @@
+.close-icon {
+  color: white;
+}
+
+.dialog-class-adaugaImaginePrinCamera {
+  // margin: 8px;
+  // max-width: 100%;
+  // min-width: 0;
+  // width: 95vw;
+  // margin: 0 auto;
+
+  .mat-dialog-container {
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+}
+.mat-dialog-container {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+.container_dialog {
+  position: relative;
+}
+
+.content {
+  display: block;
+}
+
+.peste-video-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.custom-dialog-container .mat-dialog-container {
+  padding: 0px !important;
+}

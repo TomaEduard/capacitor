@@ -23,6 +23,8 @@ import { AppInfoDialogComponent } from "./page/plugins/zxing/app-info-dialog/app
 import { AppInfoComponent } from "./page/plugins/zxing/app-info/app-info.component";
 import { FormatsDialogComponent } from "./page/plugins/zxing/formats-dialog/formats-dialog.component";
 import { ZxingComponent } from "./page/plugins/zxing/zxing.component";
+import { DialogAddImageComponent } from './page/plugins/jsqr/components/dialog-add-image/dialog-add-image.component';
+import { CustomSnackbarComponent } from './page/plugins/custom-snackbar/custom-snackbar.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { ZxingComponent } from "./page/plugins/zxing/zxing.component";
     FormatsDialogComponent,
     ZxingComponent,
     AppInfoComponent,
-    JsqrComponent
+    JsqrComponent,
+    DialogAddImageComponent,
+    CustomSnackbarComponent
   ],
   imports: [
     CommonModule,

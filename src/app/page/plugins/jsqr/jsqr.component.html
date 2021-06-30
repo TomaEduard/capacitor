@@ -8,41 +8,201 @@
         https://www.npmjs.com/package/jsqr
       </a>
     </h3>
+    <h3>
+      <a class="a" href="https://www.npmjs.com/package/ngx-device-detector">
+        https://www.npmjs.com/package/ngx-device-detectorf
+      </a>
+    </h3>
+    <mat-divider></mat-divider>
     <br>
 
-    <div fxLayout="row" fxLayoutGap="15px">
-      <button mat-button (click)="startScan()">Start Scan</button>
-      <button *ngIf="scanActive" mat-button (click)="reset()">Reset</button>
+    <!-- pana se incarca video, se randeaza working -->
+    <div *ngIf="loadingCtrl" class="loadingCtrl" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="50px">
+      <div></div>
+      <mat-spinner></mat-spinner>
     </div>
 
-    <video #video [hidden]="!scanActive" width="100%"></video>
 
-    <button *ngIf="scanActive" mat-button (click)="stopScan()">Stop scan</button>
+    <div fxLayout="column" fxLayoutGap="15px">
+      <div 
+        fxLayout="row" 
+        fxLayoutAlign="space-between center"
+        fxLayout.lt-md="column"
+        fxLayoutGap.lt-md="25px"
+        fxLayoutGap="0px"
+      >
+  
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <h3>QR Code Scan from video streaming</h3>
+    
+          <div fxLayout="row" fxLayoutGap="15px">
+            <button 
+              mat-stroked-button
+              (click)="startScan()" 
+            >
+              <div 
+                fxLayout="row" 
+                fxLayoutAlign="start center" 
+                fxLayoutGap="4px"
+              >
+                <mat-icon class="icon_gray">qr_code_scanner</mat-icon>
+                <p>Start Scan</p>
+              </div>
+            </button>
+            
+            <button mat-stroked-button (click)="stopScan()" [disabled]="!scanActive">Stop scan</button>
+    
+          </div>
+        </div>
+  
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <h3>QR Code Scan from Gallery</h3>
+    
+          <div fxLayout="row" fxLayoutGap="15px">
+            <button 
+              mat-stroked-button
+              (click)="captureImage()"
+            >
+              <div 
+                fxLayout="row" 
+                fxLayoutAlign="start center" 
+                fxLayoutGap="4px"
+              >
+                <mat-icon class="icon_gray">collections</mat-icon>
+                <mat-icon class="icon_gray">trending_flat</mat-icon>
+                <mat-icon class="icon_gray">qr_code_scanner</mat-icon>
+                <p>Start Scan</p>
+              </div>
+            </button>
+          </div>
+        </div>
+    
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <h3>QR Code Scan from captured Image  </h3>
+          <mat-divider></mat-divider>
+          <input #fileinput type="file" accept="image/*; capture=camera" hidden (change)="handleFile($event.target.files)">
+      
+          <ng-container *ngIf="!scanActive; else capture">
+            <button
+              mat-stroked-button
+              (click)="scanFromImage()"
+            >
+              <div 
+                fxLayout="row" 
+                fxLayoutAlign="start center" 
+                fxLayoutGap="4px"
+              >
+                <mat-icon class="icon_gray">add_a_photo</mat-icon>
+                <mat-icon class="icon_gray">trending_flat</mat-icon>
+                <mat-icon class="icon_gray">qr_code_scanner</mat-icon>
+                <p>Capture Image</p>
+              </div>
+            </button>
+          </ng-container>
+
+          <ng-template #capture>
+            <button
+              mat-stroked-button
+              (click)="stopScanAndCapture()"
+            >
+              <div 
+                fxLayout="row" 
+                fxLayoutAlign="start center" ff
+                fxLayoutGap="4px"
+              >
+                <mat-icon class="icon_gray">camera</mat-icon>
+                <p>Take a photo</p>
+              </div>
+            </button>
+          </ng-template>
+        
+        </div>
+    
+      </div>
+      
+      loadingCtrl:{{loadingCtrl}}<br>
+      scanActive:{{scanActive}}<br>
+
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <button mat-stroked-button (click)="reset()" [disabled]="!scanResult">Reset</button>
+      </div>
+
+      <br>
+      <video #video [hidden]="!scanActive" width="100%"></video>
+      <canvas #canvas hidden></canvas>
+
+    </div>
 
     <ng-container *ngIf="scanResult">
       <mat-card>
-          <mat-card-header>
-              <mat-card-title>Qr Code</mat-card-title>
-              <mat-card-subtitle>Subtitle</mat-card-subtitle>
-          </mat-card-header>
-          
-          <!-- <img matCardImage src="Card wide image source"> -->
+        <mat-card-header>
+          <mat-card-title>
 
-          <mat-card-content>
-            {{ scanResult }}
-          </mat-card-content>
+          </mat-card-title>
+          <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+        </mat-card-header>
 
-          <!-- <mat-card-actions align="start">
-            <button mat-button (click)="onAction1">Action1</button>
-          </mat-card-actions>
+        <!-- <img matCardImage src="Card wide image source"> -->
 
-          <mat-card-footer>
-            Footer
-          </mat-card-footer> -->
+        <mat-card-content>
+          <!-- {{ scanResult }} -->
+          <div 
+            fxLayout="row" 
+            fxLayoutAlign="space-between center"
+            fxLayout.lt-sm="column"
+            fxLayoutAlign.lt-sm="center center"
+          >
+
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" fxLayoutGap.lt-sm="7px">
+              <img width="35px;" style="margin-right: 12px" src="../../../assets/feature/qr_code.png" alt="">
+              <p>{{ scanResult }}</p>
+            </div>
+            
+            <div fxLayout="row" fxLayoutAlign="end center">
+
+              <button mat-stroked-button (click)="open()" color="primary">
+                Open
+              </button>
+            </div>
+          </div>
+        </mat-card-content>
+
+        <!-- <mat-card-actions align="start">
+          <button mat-button (click)="onAction1">Action1</button>
+        </mat-card-actions>
+
+        <mat-card-footer>
+          Footer
+        </mat-card-footer> -->
 
       </mat-card>
     </ng-container>
     
+
+
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div fxLayout="row" fxLayoutGap="25px" fxLayout.lt-sm="column">
+      <button mat-stroked-button (click)="openSnackBar()" color="primary" [disabled]="snackBarShown" [disabled]="!scanResult">Open Login Snackbar</button>
+      <button mat-stroked-button (click)="closeSnackBar()" color="warn" [disabled]="!snackBarShown">Close Login Snackbar</button>
+    </div>
+
+  </div>
+
+
+  
+  <div style="border: dashed 5px red;" hidden>
+    deviceIsDesktop: {{deviceIsDesktop}}
+    <br>
+    <button mat-stroked-button (click)="dialogAddImage()">
+      Dialog
+    </button>
+    <br>
   </div>
 
 </app-header>

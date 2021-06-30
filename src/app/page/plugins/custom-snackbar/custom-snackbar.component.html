@@ -1,0 +1,24 @@
+<div fxLayout="row" fxLayoutAlign="space-between center">
+  <p style="margin: 0; padding: 0; color: black;">{{scanResult}}</p>
+  <div>
+    <button mat-icon-button color="primary" (click)="close()"
+      style="
+        position: relative;
+        bottom: 35px;
+        left: 100px;
+        background-color: white;
+        border: 1px solid #f0f0f0;
+        width: 35px;
+        height: 35px;
+      "
+    >
+      <mat-icon style="color: #b3b3b3; font-size: 20px; margin-bottom: 5px;">clear</mat-icon>
+    </button>
+    <button mat-stroked-button (click)="open()" color="primary">
+      Open
+    </button>
+  </div>
+</div>
+
+
+

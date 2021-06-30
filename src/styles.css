@@ -29,3 +29,12 @@ a:hover {
   display: inline;
   line-height: 1.8;
 }
+
+.white_snackBar {
+  background: whitesmoke;
+
+  margin: 8px !important;
+  min-width: 88vw !important;
+  width: 88vw !important;
+  margin: 0 auto !important;
+}
