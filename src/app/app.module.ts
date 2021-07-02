@@ -47,7 +47,7 @@ import { CustomSnackbarComponent } from './page/plugins/custom-snackbar/custom-s
     AppInfoComponent,
     JsqrComponent,
     DialogAddImageComponent,
-    CustomSnackbarComponent
+    CustomSnackbarComponent,
   ],
   imports: [
     CommonModule,

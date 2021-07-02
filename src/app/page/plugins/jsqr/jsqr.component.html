@@ -8,15 +8,44 @@
         https://www.npmjs.com/package/jsqr
       </a>
     </h3>
-    <h3>
-      <a class="a" href="https://www.npmjs.com/package/ngx-device-detector">
-        https://www.npmjs.com/package/ngx-device-detectorf
-      </a>
-    </h3>
 
-    <pre>
-      {{plt | json}}
-    </pre>
+    <mat-accordion>
+      <mat-expansion-panel hideToggle  (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Library: ngx-device-detectorf
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <h3>
+          <a class="a" href="https://www.npmjs.com/package/ngx-device-detector">
+            https://www.npmjs.com/package/ngx-device-detectorf
+          </a>
+        </h3>
+        <br>
+        <pre>
+          {{plt | json}}
+        </pre>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Native Browser navigator.mediaDevices.enumerateDevices
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+          existaCamera: {{existaCamera}}
+        </div>
+    
+        <pre>
+          {{mediaDeviceInfo | json}}
+        </pre>
+      </mat-expansion-panel>
+    </mat-accordion>
 
     <mat-divider></mat-divider>
     <br>
@@ -26,7 +55,6 @@
       <div></div>
       <mat-spinner></mat-spinner>
     </div>
-
 
     <div fxLayout="column" fxLayoutGap="15px">
       <div 
@@ -41,9 +69,12 @@
           <h3>QR Code Scan from video streaming</h3>
     
           <div fxLayout="row" fxLayoutGap="15px">
+
+            <!-- <div [ngStyle]="{'display': (scanActive) ? 'none' : 'inline'}"> -->
             <button 
               mat-stroked-button
               (click)="startScan()" 
+              [disabled]="scanActive"
             >
               <div 
                 fxLayout="row" 
@@ -55,7 +86,17 @@
               </div>
             </button>
             
-            <button mat-stroked-button (click)="stopScan()" [disabled]="!scanActive">Stop scan</button>
+            <button mat-stroked-button (click)="stopScan()" [disabled]="!scanActive">
+              <div 
+                fxLayout="row" 
+                fxLayoutAlign="start center" 
+                fxLayoutGap="4px"
+                
+              >
+                <mat-icon class="icon_gray" [ngStyle]="{'color': (scanActive) ? 'tomato' : 'gray'}">stop</mat-icon>
+                Stop scan
+              </div>
+            </button>
     
           </div>
         </div>
@@ -83,7 +124,7 @@
         </div>
     
         <div fxLayout="column" fxLayoutAlign="center center">
-          <h3>QR Code Scan from captured Image  </h3>
+          <h3>QR Code Scan from captured Image</h3>
           <mat-divider></mat-divider>
           <input #fileinput type="file" accept="image/*; capture=camera" hidden (change)="handleFile($event.target.files)">
       
@@ -106,19 +147,32 @@
           </ng-container>
 
           <ng-template #capture>
-            <button
-              mat-stroked-button
-              (click)="stopScanAndCapture()"
-            >
-              <div 
-                fxLayout="row" 
-                fxLayoutAlign="start center" ff
-                fxLayoutGap="4px"
+            <div fxLayout="row" fxLayoutGap="15px">
+              <button
+                mat-stroked-button
+                (click)="stopVideoAndScanFromLastImage()"
               >
-                <mat-icon class="icon_gray">camera</mat-icon>
-                <p>Take a photo</p>
-              </div>
-            </button>
+                <div 
+                  fxLayout="row" 
+                  fxLayoutAlign="start center"
+                  fxLayoutGap="4px"
+                >
+                  <mat-icon class="icon_gray">camera</mat-icon>
+                  <p>Take a photo</p>
+                </div>
+              </button>
+  
+              <button mat-stroked-button (click)="stopScan()" [disabled]="!scanActive">
+                <div 
+                  fxLayout="row" 
+                  fxLayoutAlign="start center" 
+                  fxLayoutGap="4px"
+                >
+                  <mat-icon class="icon_gray" [ngStyle]="{'color': (scanActive) ? 'tomato' : 'gray'}">stop</mat-icon>
+                  Stop scan
+                </div>
+              </button>
+            </div>
           </ng-template>
         
         </div>
@@ -133,7 +187,7 @@
       </div>
 
       <br>
-      <video #video [hidden]="!scanActive" width="100%"></video>
+      <video #video [hidden]="!scanActive" width="100%; border-radius: 10px;"></video>
       <canvas #canvas hidden></canvas>
 
     </div>

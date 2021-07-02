@@ -10,7 +10,7 @@
       
       <div fxLayout="row" fxLayoutGap="10px">
         <button mat-button [matMenuTriggerFor]="puginsMenu">
-          Plugins
+          Others
         </button>
   
         <button mat-button [matMenuTriggerFor]="capacitorMenu">
@@ -19,12 +19,25 @@
       </div>
 
       <mat-menu #puginsMenu="matMenu">
-        <button mat-menu-item [routerLink]="['/ZXing']" fxLayout="row" fxLayoutAlign="start center">
-          <span>ZXing</span>
+
+        <button mat-menu-item [routerLink]="['/captureSaveAndPlayVideos']" fxLayout="row" fxLayoutAlign="start center">
+          <mat-icon style="color: gray;">videocam</mat-icon>
+          <span>Capture, Save and Play Videos</span>
         </button>
+
+        <mat-divider></mat-divider>
+        <button mat-menu-item disabled fxLayout="row" fxLayoutAlign="start center">
+          <span>Plugins</span>
+        </button>
+
         <button mat-menu-item [routerLink]="['/jsQR']" fxLayout="row" fxLayoutAlign="start center">
           <span>jsQR</span>
         </button>
+        
+        <button mat-menu-item [routerLink]="['/ZXing']" fxLayout="row" fxLayoutAlign="start center">
+          <span>ZXing</span>
+        </button>
+
       </mat-menu>
 
       <mat-menu #capacitorMenu="matMenu">

@@ -38,3 +38,16 @@ a:hover {
   width: 88vw !important;
   margin: 0 auto !important;
 }
+
+video {
+  animation: animateSablon 1s;
+}
+
+@keyframes animateSablon {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

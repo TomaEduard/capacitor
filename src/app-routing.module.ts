@@ -16,12 +16,12 @@ const routes: Routes = [
 
   // Plugins
   {
-    path: 'ZXing',
-    component: ZxingComponent,
-  },
-  {
     path: 'jsQR',
     component: JsqrComponent,
+  },
+  {
+    path: 'ZXing',
+    component: ZxingComponent,
   },
 
   // Capacitor
