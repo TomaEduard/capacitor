@@ -65,26 +65,29 @@
         fxLayoutGap="0px"
       >
   
+        <!-- 1 -->
         <div fxLayout="column" fxLayoutAlign="center center">
           <h3>QR Code Scan from video streaming</h3>
     
           <div fxLayout="row" fxLayoutGap="15px">
 
-            <!-- <div [ngStyle]="{'display': (scanActive) ? 'none' : 'inline'}"> -->
-            <button 
-              mat-stroked-button
-              (click)="startScan()" 
-              [disabled]="scanActive"
-            >
-              <div 
-                fxLayout="row" 
-                fxLayoutAlign="start center" 
-                fxLayoutGap="4px"
+            <div [matTooltip]="!existaCamera ? 'The device don\'t have camera' : ''">
+              <!-- <div [ngStyle]="{'display': (scanActive) ? 'none' : 'inline'}"> -->
+              <button 
+                mat-stroked-button
+                (click)="startScan()" 
+                [disabled]="!existaCamera"
               >
-                <mat-icon class="icon_gray">qr_code_scanner</mat-icon>
-                <p>Start Scan</p>
-              </div>
-            </button>
+                <div 
+                  fxLayout="row" 
+                  fxLayoutAlign="start center" 
+                  fxLayoutGap="4px"
+                >
+                  <mat-icon class="icon_gray">qr_code_scanner</mat-icon>
+                  <p>Start Scan</p>
+                </div>
+              </button>
+            </div>
             
             <button mat-stroked-button (click)="stopScan()" [disabled]="!scanActive">
               <div 
@@ -101,6 +104,7 @@
           </div>
         </div>
   
+        <!-- 2 -->
         <div fxLayout="column" fxLayoutAlign="center center">
           <h3>QR Code Scan from Gallery</h3>
     
@@ -123,27 +127,32 @@
           </div>
         </div>
     
+        <!-- 3 -->
         <div fxLayout="column" fxLayoutAlign="center center">
           <h3>QR Code Scan from captured Image</h3>
           <mat-divider></mat-divider>
           <input #fileinput type="file" accept="image/*; capture=camera" hidden (change)="handleFile($event.target.files)">
       
           <ng-container *ngIf="!scanActive; else capture">
-            <button
-              mat-stroked-button
-              (click)="scanFromImage()"
-            >
-              <div 
-                fxLayout="row" 
-                fxLayoutAlign="start center" 
-                fxLayoutGap="4px"
+
+            <div [matTooltip]="!existaCamera ? 'The device don\'t have camera' : ''">
+              <button
+                mat-stroked-button
+                (click)="scanFromImage()"
+                [disabled]="!existaCamera"
               >
-                <mat-icon class="icon_gray">add_a_photo</mat-icon>
-                <mat-icon class="icon_gray">trending_flat</mat-icon>
-                <mat-icon class="icon_gray">qr_code_scanner</mat-icon>
-                <p>Capture Image</p>
-              </div>
-            </button>
+                <div 
+                  fxLayout="row" 
+                  fxLayoutAlign="start center" 
+                  fxLayoutGap="4px"
+                >
+                  <mat-icon class="icon_gray">add_a_photo</mat-icon>
+                  <mat-icon class="icon_gray">trending_flat</mat-icon>
+                  <mat-icon class="icon_gray">qr_code_scanner</mat-icon>
+                  <p>Capture Image</p>
+                </div>
+              </button>
+            </div>
           </ng-container>
 
           <ng-template #capture>
@@ -151,6 +160,7 @@
               <button
                 mat-stroked-button
                 (click)="stopVideoAndScanFromLastImage()"
+                [disabled]="!existaCamera"
               >
                 <div 
                   fxLayout="row" 
@@ -214,7 +224,7 @@
 
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" fxLayoutGap.lt-sm="7px">
               <img width="35px;" style="margin-right: 12px" src="../../../assets/feature/qr_code.png" alt="">
-              <p>{{ scanResult }}</p>
+              <p style="word-break: break-all;">{{ scanResult }}</p>
             </div>
             
             <div fxLayout="row" fxLayoutAlign="end center">

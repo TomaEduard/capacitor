@@ -1,6 +1,16 @@
 <div fxLayout="row" fxLayoutAlign="space-between center">
-  <p style="margin: 0; padding: 0; color: black;">{{scanResult}}</p>
-  <div>
+  <p style="
+    margin: 0; 
+    padding: 0; 
+    color: black; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  "
+  >
+    {{scanResult}}
+  </p>
+  
     <button mat-icon-button color="primary" (click)="close()"
       style="
         position: relative;
@@ -14,10 +24,10 @@
     >
       <mat-icon style="color: #b3b3b3; font-size: 20px; margin-bottom: 5px;">clear</mat-icon>
     </button>
+    
     <button mat-stroked-button (click)="open()" color="primary">
       Open
     </button>
-  </div>
 </div>
 
 

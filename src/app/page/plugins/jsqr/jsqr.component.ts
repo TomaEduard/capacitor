@@ -227,7 +227,7 @@ export class JsqrComponent implements OnInit {
     this.scanActive = false;
   }
 
-  // ********************** 2 - scan from image galery
+  // ********************** 3 - QR Code Scan from captured Image
   handleFile(files: FileList) {
     if (!!files) {
       console.log('#2.0', )
@@ -255,7 +255,7 @@ export class JsqrComponent implements OnInit {
       img.src = URL.createObjectURL(file);
     }
   }
-  // ********************** end 2 - scan from image galery
+  // ********************** 3 - QR Code Scan from captured Image
 
   // ********************** end 3 - scan from photo
   stopVideoAndScanFromLastImage() {
@@ -333,6 +333,7 @@ export class JsqrComponent implements OnInit {
 
 
   captureImage() {
+    // console.log('#2', )
     this.fileinput.nativeElement.click();
   }
 
