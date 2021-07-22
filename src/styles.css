@@ -6,6 +6,8 @@ body { margin: 0; padding: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 p {
   margin: 0;
   padding: 0;
+  color: black;
+  word-break: break-all;
 }
 
 a {
@@ -34,9 +36,13 @@ a:hover {
   background: whitesmoke;
 
   margin: 8px !important;
-  min-width: 88vw !important;
+  min-width: 100vw !important;
   width: 88vw !important;
   margin: 0 auto !important;
+
+  padding: 22px !important;
+  border-top-right-radius: 20px !important;
+  border-top-left-radius: 20px !important;
 }
 
 video {

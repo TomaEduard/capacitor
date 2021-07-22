@@ -14,11 +14,11 @@
     <br>
     <br>
   
-    <pre class="code">ng add @capacitor/angular</pre>
+    <p class="code">ng add @capacitor/angular</p>
     <br>
-    <pre class="code">npm install @capacitor/cli@latest @capacitor/core@latest</pre>
+    <p class="code">npm install @capacitor/cli@latest @capacitor/core@latest</p>
     <br>
-    <pre class="code">npx cap init</pre>
+    <p class="code">npx cap init</p>
 
     <ul>
       <li>What is the name of your app?</li>
@@ -26,7 +26,7 @@
     </ul>
 
     <br>
-    <pre class="code">ng build --prod</pre> 
+    <p class="code">ng build --prod</p> 
     <br>
 
     <ul>
@@ -41,13 +41,13 @@
     <br>
     <h3>Install Capacitor for android & mac</h3>
 
-    <pre class="code">npm i @capacitor/ios @capacitor/android @capacitor/electron</pre> 
+    <p class="code">npm i @capacitor/ios @capacitor/android @capacitor/electron</p> 
     <br>
-    <pre class="code">npx cap add android</pre>  
+    <p class="code">npx cap add android</p>  
     <br>
-    <pre class="code">npx cap add ios</pre>  
+    <p class="code">npx cap add ios</p>  
     <br>
-    <pre class="code">npx cap add electron</pre>  
+    <p class="code">npx cap add electron</p>  
 
     <br>
     <br>
@@ -57,7 +57,7 @@
     <br>
     <h3>sync dist/[project name] -> android/ios app</h3>
 
-    <pre class="code">npm cap sync</pre> 
+    <p class="code">npm cap sync</p> 
 
     <br>
     <br>
@@ -67,17 +67,17 @@
     <br>
     <h3>package.json -> scripts</h3>
 
-    <pre class="code">"run-android": "ng b --prod && npx cap copy && npx cap open android",</pre><br>
-    <pre class="code">"run-ios": "ng b --prod && npx cap copy && npx cap open ios",</pre><br>
-    <pre class="code">"build-ios": "ng b --prod && npx cap copy",</pre> 
+    <p class="code">"run-android": "ng b --prod && npx cap copy && npx cap open android",</p><br>
+    <p class="code">"run-ios": "ng b --prod && npx cap copy && npx cap open ios",</p><br>
+    <p class="code">"build-ios": "ng b --prod && npx cap copy",</p> 
 
     <br>
     <br>
-    <pre class="code">"start:electron": "ng build --base-href ./ --prod && npx cap copy && npx cap open electron",</pre>
-    <pre class="code">"setup-win": "electron-packager . [name of project(folder name in dist/[example])] 
+    <p class="code">"start:electron": "ng build --base-href ./ --prod && npx cap copy && npx cap open electron",</p>
+    <p class="code">"setup-win": "electron-packager . [name of project(folder name in dist/[example])] 
       --overwrite --asar --platform=win32 --arch=ia32 --prune=true --electron-version=13.1.3 --out=release-builds 
-      --version-string.CompanyName=MyCompany --version-string.FileDescription=Test --version-string.ProductName=\"[name of project(folder name in dist/[example])]\",</pre>
-    <pre class="code">"run-electron": "ng b --base-href ./ --prod && npx cap copy && npx cap open electron"</pre>
+      --version-string.CompanyName=MyCompany --version-string.FileDescription=Test --version-string.ProductName=\"[name of project(folder name in dist/[example])]\",</p>
+    <p class="code">"run-electron": "ng b --base-href ./ --prod && npx cap copy && npx cap open electron"</p>
     
 
     <br>

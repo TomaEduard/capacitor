@@ -1,33 +1,62 @@
-<div fxLayout="row" fxLayoutAlign="space-between center">
-  <p style="
-    margin: 0; 
-    padding: 0; 
-    color: black; 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+<button mat-icon-button color="primary" (click)="close()"
+  style="
+    position: fixed;
+    background-color: white;
+    border: 1px solid #f0f0f0;
+    width: 35px;
+    height: 35px;
+    bottom: 95px;
+    right: 3px;
   "
-  >
-    {{scanResult}}
-  </p>
-  
-    <button mat-icon-button color="primary" (click)="close()"
-      style="
-        position: relative;
-        bottom: 35px;
-        left: 100px;
-        background-color: white;
-        border: 1px solid #f0f0f0;
-        width: 35px;
-        height: 35px;
-      "
+>
+  <mat-icon style="color: #b3b3b3; font-size: 20px; margin-bottom: 5px;">clear</mat-icon>
+</button>
+<div fxLayout="column" fxLayoutGap="10px">
+
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxLayoutGap="10px" style="color: black;">
+      <mat-icon>
+        qr_code
+      </mat-icon>
+      <b>Pagina web</b>
+    </div>
+        
+
+    <div>
+      <button 
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        mat-icon-button 
+        (click)="open()" 
+        style="width: 40px;
+          height: 28px;            
+          transform: rotate(180deg);
+          background-color: #d1d1d1;
+          padding: 2px 6px;
+          border-radius: 10px;
+        "
+      >
+        <mat-icon>west</mat-icon>
+      </button>
+
+
+    </div>
+  </div>
+
+  <div>
+    <p style="
+      margin: 0; 
+      padding: 0; 
+      color: black; 
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    "
     >
-      <mat-icon style="color: #b3b3b3; font-size: 20px; margin-bottom: 5px;">clear</mat-icon>
-    </button>
-    
-    <button mat-stroked-button (click)="open()" color="primary">
-      Open
-    </button>
+      {{scanResult}}
+    </p>
+  </div>
+
 </div>
 
 
