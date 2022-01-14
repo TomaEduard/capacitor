@@ -145,6 +145,7 @@ export class JsqrComponent implements OnInit {
     }
   }
 
+  // ********************** 1
   async startScan() {
     this.loadingCtrl = true;
 
@@ -226,6 +227,14 @@ export class JsqrComponent implements OnInit {
   stopScan() {
     this.scanActive = false;
   }
+  // ********************** /1
+
+  // ********************** 2
+  captureImage() {
+    // console.log('#2', )
+    this.fileinput.nativeElement.click();
+  }
+  // ********************** /2
 
   // ********************** 3 - QR Code Scan from captured Image
   handleFile(files: FileList) {
@@ -255,9 +264,7 @@ export class JsqrComponent implements OnInit {
       img.src = URL.createObjectURL(file);
     }
   }
-  // ********************** 3 - QR Code Scan from captured Image
-
-  // ********************** end 3 - scan from photo
+  
   stopVideoAndScanFromLastImage() {
     console.log('#2.1', )
 
@@ -303,11 +310,13 @@ export class JsqrComponent implements OnInit {
       console.log('#2😢 QR Code not found from image', )
     }
   }
-  // ********************** end 2 - scan from photo
 
   reset() {
     this.scanResult = null;
   }
+  // ********************** end 3 - scan from photo
+
+
 
   openSnackBar() {
     this.snackBarShown = true;
@@ -325,20 +334,11 @@ export class JsqrComponent implements OnInit {
     }, duration);
   }
 
+  // Utils
+
   closeSnackBar() {
     this.snackBarShown = false;
     this._snackBar.dismiss();
-  }
- 
-
-
-  captureImage() {
-    // console.log('#2', )
-    this.fileinput.nativeElement.click();
-  }
-
-  open() {
-    window.open(this.scanResult, '_system', 'location=yes');
   }
 
   // TODO full screen
